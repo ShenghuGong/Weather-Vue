@@ -33,6 +33,20 @@ jspm_packages
 # Optional npm cache directory
 .npm
 
+#ignore obj and lib file
+dist
+rev
+
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IntelliJ project files
+.idea
+out
+gen
+
 # Optional REPL history
 .node_repl_history
-.idea/
+dist/
