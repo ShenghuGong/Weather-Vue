@@ -5,7 +5,9 @@ module.exports = {
     sourceType: 'module'
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
+  // extends: 'standard',
+  // https://github.com/airbnb/javascript
+  extends: 'airbnb',
   // required to lint *.vue files
   plugins: [
     'html'
@@ -20,5 +22,9 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     // always required semicolons
     "semi": [1, "always"],
+    // turn off no-unused-vars rule
+    "no-unused-vars": ["off"],
+    // 关闭尾部逗号检测
+    "comma-dangle": ["off"]
   }
 };
