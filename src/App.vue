@@ -19,7 +19,8 @@
   };
 </script>
 
-<style>
+<style lang="scss"
+       rel="stylesheet/scss">
   #app {
     text-align: center;
     color: #2c3e50;

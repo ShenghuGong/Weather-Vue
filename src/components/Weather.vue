@@ -4,12 +4,14 @@
     <div>{{data}}</div>
   </div>
 </template>
-<style>
+
+<style lang="scss"
+       rel="stylesheet/scss">
   body {
     background-color: #aaeecc;
   }
-
 </style>
+
 <script>
   import { NativeXhr as xhr } from '../common/js/NativeXhr';
 
