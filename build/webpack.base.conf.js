@@ -3,6 +3,7 @@ var config = require('../config');
 var utils = require('./utils');
 var projectRoot = path.resolve(__dirname, '../');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var Webpack = require('webpack');
 
 var env = process.env.NODE_ENV;
 // check env & config/index.js to decide whether to enable CSS source maps for the
@@ -27,7 +28,9 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'components': path.resolve(__dirname, '../src/components'),
+      'zepto': path.join(__dirname, '../node_modules/zepto/dist/zepto.js'),
+      'underscore': path.join(__dirname, '../node_modules/underscore/underscore.js')
     }
   },
   resolveLoader: {
@@ -52,6 +55,10 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue'
+      },
+      {
+        test: require.resolve('zepto'),
+        loader: "exports?window.$!script"
       },
       {
         test: /\.js$/,
@@ -84,7 +91,11 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([{
       from: 'src/favicon.png'
-    }])
+    }]),
+    new Webpack.ProvidePlugin({
+      $: 'zepto',
+      _: 'underscore'
+    })
   ],
   eslint: {
     formatter: require('eslint-friendly-formatter')

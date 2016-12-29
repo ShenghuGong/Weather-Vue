@@ -4,9 +4,13 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  "env": {
-    "browser": true,
-    "es6": true
+  env: {
+    'browser': true,
+    'es6': true
+  },
+  globals: {
+    '$': true,
+    '_': true
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   // extends: 'standard',
@@ -25,12 +29,12 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     // always required semicolons
-    "semi": [1, "always"],
+    'semi': [1, 'always'],
     // turn off no-unused-vars rule
-    "no-unused-vars": ["off"],
+    'no-unused-vars': ['off'],
     // 关闭尾部逗号检测
-    "comma-dangle": ["off"],
+    'comma-dangle': ['off'],
     // 字符串模板
-    'prefer-template': ["warn"]
+    'prefer-template': ['warn']
   }
 };
