@@ -4,6 +4,10 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   // extends: 'standard',
   // https://github.com/airbnb/javascript
@@ -25,6 +29,8 @@ module.exports = {
     // turn off no-unused-vars rule
     "no-unused-vars": ["off"],
     // 关闭尾部逗号检测
-    "comma-dangle": ["off"]
+    "comma-dangle": ["off"],
+    // 字符串模板
+    'prefer-template': ["warn"]
   }
 };
