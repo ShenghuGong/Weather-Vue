@@ -2,7 +2,6 @@
   <div id="app">
     <img src="./assets/logo.png">
     <Weather></Weather>
-    <hello></hello>
   </div>
 </template>
 

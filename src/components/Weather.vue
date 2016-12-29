@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div>this is template body</div>
-    <div>{{data}}</div>
+    <button @click="getData">获取数据</button>
+    <div>{{new Date().toString()}}</div>
+    <div>{{msgData}}</div>
   </div>
 </template>
 
@@ -13,14 +14,26 @@
 </style>
 
 <script>
-  import { NativeXhr as xhr } from '../common/js/NativeXhr';
+  import Xhr from '../common/js/NativeXhr';
 
   export default {
     data() {
       return {
-        msg: 'hello vue',
-        data: xhr
+        msg: 'hello vue ' + new Date(),
+        msgData: '天气'
       };
+    },
+    methods: {
+      getData() {
+        Xhr.doRequest((result) => {
+          this.msgData = result;
+          console.log('----success----', result);
+        }, () => {
+          console.log('----failed----');
+        }, () => {
+          console.log('----final----');
+        });
+      }
     }
   };
 </script>
