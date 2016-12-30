@@ -4,6 +4,7 @@ var merge = require('webpack-merge');
 var utils = require('./utils');
 var baseWebpackConfig = require('./webpack.base.conf');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var Visualizer = require('webpack-visualizer-plugin');
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -29,6 +30,10 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: './src/index.html',
       inject: true
+    }),
+    // https://github.com/chrisbateman/webpack-visualizer
+    new Visualizer({
+      filename: './visualizer.html'
     })
   ]
 });
