@@ -9,6 +9,7 @@ module.exports = {
     'es6': true
   },
   globals: {
+    'cfg': true,
     '$': true,
     '_': true
   },

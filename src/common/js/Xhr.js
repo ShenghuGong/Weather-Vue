@@ -6,7 +6,10 @@ export default class Xhr {
     const queryParams = Object.assign({
       key: '5a7f3bf3b3814b20ba6fa59388c3d0ae'
     }, options.queryParams);
-    const url = `${options.path}?${$.param(queryParams)}`;
+    let url = `${options.path}?${$.param(queryParams)}`;
+    url = ((!new RegExp('^http', 'i').test(url) && cfg[options.remote || 'biz']) ||
+      '') + url;
+
     const params = JSON.stringify(options.params);
 
     const opts = {

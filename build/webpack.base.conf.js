@@ -91,6 +91,8 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([{
       from: 'src/favicon.png'
+    }, {
+      from: 'src/cfg.js'
     }]),
     new Webpack.ProvidePlugin({
       $: 'zepto',

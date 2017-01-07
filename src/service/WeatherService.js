@@ -17,6 +17,6 @@ class WeatherService extends BaseService {
 }
 
 WeatherService.PATH = {
-  NOW: 'https://free-api.heweather.com/v5/now'
+  NOW: 'now'
 };
 export default WeatherService;
