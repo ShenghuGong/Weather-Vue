@@ -14,24 +14,30 @@
 </style>
 
 <script>
-  import Xhr from '../common/js/NativeXhr';
+  import weatherService from '../service/WeatherService';
 
   export default {
     data() {
       return {
-        msg: 'hello vue ' + new Date(),
+        msg: `hello vue ${new Date()}`,
         msgData: '天气'
       };
     },
     methods: {
       getData() {
-        Xhr.doRequest((result) => {
-          this.msgData = result;
-          console.log('----success----', result);
-        }, () => {
-          console.log('----failed----');
-        }, () => {
-          console.log('----final----');
+        // TODO 是否可以用 $vm 替换？
+        const self = this;
+        weatherService.getNowWeather('hangzhou', {
+          success(result) {
+            self.msgData = result;
+            console.log('----success----', result);
+          },
+          error() {
+            console.log('----failed----');
+          },
+          complete() {
+            console.log('----final----');
+          }
         });
       }
     }
