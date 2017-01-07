@@ -35,6 +35,8 @@ module.exports = {
     // 关闭尾部逗号检测
     'comma-dangle': ['off'],
     // 字符串模板
-    'prefer-template': ['warn']
+    'prefer-template': ['warn'],
+    // Allow Reassignment of Function Parameters
+    'no-param-reassign': ['off']
   }
 };
